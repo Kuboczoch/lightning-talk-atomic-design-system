@@ -1,43 +1,21 @@
 ---
-# try also 'default' to start simple
 theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
 background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
-class: 'text-center'
-# https://sli.dev/custom/highlighters.html
+class: text-center
 highlighter: shiki
-# show line numbers in code blocks
 lineNumbers: false
-# some information about the slides, markdown enabled
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+  ## Atomic design system
+  Better system for creating better websites
+  About methodology and why we should use it!
+title: Atomic design system
 ---
 
-# Welcome to Slidev
+# Atomic design system
 
-Presentation slides for developers
+Better system for creating better websites
 
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
-
+About methodology and why we should use it!
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
@@ -45,22 +23,11 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 
-# What is Slidev?
+# What is atomic design?
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+Atomic design is methodology for creating design systems. There are five distinct levels in atomic design:
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+<img src="https://cdn-images-1.medium.com/fit/t/1600/480/1*GFkjjKLjnhOSLn-kM8jB8Q.png" alt="atomic design graph">
 
 <!--
 You can have `style` tag in markdown to override the style for the current page.
@@ -68,279 +35,219 @@ Learn more: https://sli.dev/guide/syntax#embedded-styles
 -->
 
 <style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-text-fill-color: transparent;
-}
+</style>
+
+
+---
+
+# Atoms
+
+#### Atoms are the basic building blocks of matter.
+Applied to web interfaces, atoms are our HTML tags, such as a form label, an input or a button.
+
+<img src="https://bradfrost.com/wp-content/uploads/2013/06/atoms.jpg"/>
+
+<style>
+  img {
+  	height: 350px;
+    margin: 0 auto;
+  }
+</style>
+
+
+---
+
+# Molecules
+
+#### Things start getting more interesting and tangible when we start combining atoms together.
+Molecules are groups of atoms bonded together and are the smallest fundamental units of a compound.
+These molecules take on their own properties and serve as the backbone of our design systems.
+
+Building up to molecules from atoms encourages a “do one thing and do it well” mentality.
+While molecules can be complex, as a rule of thumb they are relatively simple combinations of atoms built for reuse.
+
+<img src="https://bradfrost.com/wp-content/uploads/2013/06/molecule.jpg"/>
+
+<style>
+  img {
+    height: 120px;
+    object-fit: cover;
+    margin: 0 auto;
+    width: 400px;
+  }
 </style>
 
 ---
 
-# Navigation
+# Organisms
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+#### Molecules give us some building blocks to work with, and we can now combine them together to form organisms. Organisms are groups of molecules joined together to form a relatively complex, distinct section of an interface.
 
-### Keyboard Shortcuts
+We’re starting to get increasingly concrete. A client might not be terribly interested in the molecules of a design system, but with organisms we can see the final interface beginning to take shape.
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+<img src="https://bradfrost.com/wp-content/uploads/2013/06/organism2.jpg"/>
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+<style>
+  img {
+    height: 90px;
+    object-fit: cover;
+    margin: 0 auto;
+    width: 1000px;
+  }
+</style>
+
+---
+
+# Templates
+
+#### At the template stage, we break our chemistry analogy to get into language that makes more sense to our clients and our final output. Templates consist mostly of groups of organisms stitched together to form pages. It’s here where we start to see the design coming together and start seeing things like layout in action.
+
+<img src="https://bradfrost.com/wp-content/uploads/2013/06/template1.jpg"/>
+
+<style>
+  img {
+    height: 350px;
+    object-fit: contain;
+    margin: 20px auto 0;
+    width: 1000px;
+  }
+</style>
+
+---
+
+# Pages
+
+#### Pages are specific instances of templates. Here, placeholder content is replaced with real representative content to give an accurate depiction of what a user will ultimately see.
+
+<img src="https://bradfrost.com/wp-content/uploads/2013/06/page1.jpg"/>
+
+<style>
+  img {
+    height: 350px;
+    object-fit: contain;
+    margin: 20px auto 0;
+    width: 1000px;
+  }
+</style>
+
 
 ---
 layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
+image: https://source.unsplash.com/collection/94734567/1920x1080
 ---
 
-# Code
+# Code - atom
 
-Use code snippets and get the highlighting directly![^1]
+```ts
+import styled from '@emotion/styled'
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
+const StyledInput = styled('input')`
+  color: grey;
+  font-size: 16px;
+  font-family: inherit;
+`
 
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = {...user, ...update}  
-  saveUser(id, newUser)
-}
+export default StyledInput
 ```
 
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
+```ts
+import styled from '@emotion/styled'
 
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
+const Text = styled('p')`
+  color: black;
+  font-size: 16px;
+`
 
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
+export default Text
 ```
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-
 ---
-class: px-20
+layout: image-right
+image: https://source.unsplash.com/collection/94734568/1920x1080
 ---
 
-# Themes
+# Code - molecule
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+```tsx
+import styled from '@emotion/styled'
+import Text from '../atoms/Text'
+import StyledInput from '../atoms/StyledInput'
 
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
+const TextInput = ({text, ...props}: ITextInput) => (
+  <div>
+    <Text>{props.text}</Text>
+    <StyledInput {...props} />
   </div>
+)
 
-  <div 
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-2 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.9}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
+export default TextInput
 ```
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
+---
+layout: image-right
+image: https://source.unsplash.com/collection/94734569/1920x1080
+---
+
+# Code - organism
+
+```tsx
+import {Controller} from 'react-hook-form'
+import TextInput from '../molecules/TextInput'
+// ...
+const TextInputQuestion = (props: ITextInputQuestion) => (
+  <FancyContainer>
+    <Controller
+      control={props.control}
+      name={props.name}
+      defaultValue={''}
+      render={(renderProps, inputProps) => {
+        // Maybe magic ✨ here? Who knows!
+        // Possibilities are endless!
+        return (
+          <FileInput
+            {...renderProps}
+            {...inputProps}
+            {...props}
+          />
+        );
+      }}
+    />
+    <FancyHr/>
+  </FancyContainer>
+)
+
+export default TextInputQuestion
 ```
 
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
-
-
 ---
-layout: center
-class: text-center
+layout: image-right
+image: https://source.unsplash.com/collection/94734570/1920x1080
 ---
 
-# Learn More
+# Code - template
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+```tsx
+import Header1 from '../molecules/Header1'
+import TextInputQuestion from '../organisms/TextInputQuestion'
+
+const HomePageView = (props: IHomePageView) => (
+  <Container>
+    <form onSubmit={props.form.handleSubmit(props.onSubmit)}>
+      <Header1>My super form!</Header1>
+      <TextInputQuestion
+        control={props.form.control}
+        name='firstName'
+        title='Please enter your first name'
+      />
+      <TextInputQuestion
+        control={props.form.control}
+        name='lastName'
+        title='Please enter your last name'
+      />
+      <button type='submit'>Submit</button>
+    </form>
+  </Container>
+)
+
+export default TextInputQuestion
+```
